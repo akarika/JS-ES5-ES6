@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        //obk = object litteral syntax
+        const vehicule = {
+            id: 1,
+            brand: 'renault',
+            model: 'CLio',
+            color:'Red',
+            honk: () => {
+                console.log('utuuuuu');
+
+            },
+        }
+
+
+        //vehicule.model = 'megane';
+        console.log(vehicule.honk());
+        console.log(Object.keys(vehicule));
+        const res = Object.keys(vehicule) // méthode static
+        res.map((item) => {
+            console.log(`la clé ${item}`);
+
+        })
+        console.log(res);
+        Object.defineProperty(vehicule, 'summary',{
+            get:  () =>{
+                return `Véhicule ${this.brand} de model ${this.model} et de couleur ${this.color}` 
+            },
+            set : (value)=>{
+                  const caractéristique = value.split(',')  ;
+                  [this.brand, this.model,this.color] = caractéristique 
+            }
+        });
+        vehicule.summary = 'BMW,320d,GRAY';
+        console.log(vehicule.summary);
+        
+// copy Object
+const person = { id : 1 , firstName : 'Musk',lastName:'Elon',job:'inventeur'}
+const person2 = Object.assign({},person,{job:'investisseur'}); // ES5
+console.log(person2);
+const person3 = {...person} // ES6
+console.log(person3);
+const person4  =JSON.parse(JSON.stringify(person));// by JSON method
+console.log(person4);
+
+
+        function Vehicule2(brand,model,color){
+            this.brand = brand;
+            this.model = model;
+            this.color = color;
+        }
+        const vehicule3 = new Vehicule2('renault','megane','jaune');
+        const vehicule4 = new Vehicule2('audi','A7','grey');
+        console.log(vehicule3);
+        
+    </script>
+</body>
+
+</html>

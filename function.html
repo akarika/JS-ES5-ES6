@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="btnGreet">hello</button>
+<script>
+    var btnGreet = document.querySelector('#btnGreet');
+    // funciton anonyme passé en callback à la function addEvendListenner
+    btnGreet.addEventListener('click',()=>{
+        console.log('click');
+        
+    });
+    function eat(food, quantity = 3){
+console.log(` ${food} quantity ${quantity} `);
+
+    }
+    eat('ezazaezaea')
+    // funciton declaration
+       function greet(firstName){
+           var test ='var dans une function'
+           console.log('salut' + firstName);
+           setTimeout(function(){
+               console.log(test);
+               
+           })
+       }
+       greet('sam')
+       greet('zara')
+var isYoung = true;
+// if(isYoung){
+//     let action = "dodododo";
+// }
+// console.log(action);
+
+
+       // function expression
+       var sayGoodBye = function sayGoodBye(firstName){
+           var result = "au revoir "+ firstName;
+           return result;
+       }
+       //console.log(result);
+       
+var plane = {plane:"concorde"};
+
+
+// Immedialty Invodek Function Expression IIFE
+
+(function(){
+console.log('IFE call');
+var test = "variable dans IIFI"
+console.log(test);
+plane.country = 'france'
+console.log(plane);
+
+}(plane));
+//console.log(test);
+
+// arrow function
+
+//(params,params2)=>{}
+
+function Travel(destination , duration,price,pension,departure, other){
+
+}
+const travelToCroatie = new Travel('split','1 semaine',500,'complete','rennes','');
+</script>
+</body>
+</html>

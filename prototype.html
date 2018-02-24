@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+                function Vehicule(brand,model,color){
+            this.brand = brand;
+            this.model = model;
+            this.color = color;
+        }
+        const vehicule = new Vehicule('renault','megane','jaune');
+        const vehicule2 = new Vehicule('audi','A7','grey');
+        const vehicule3 = new Vehicule('volvo','V70','red');
+        Vehicule.prototype.country = 'FRance';
+
+Vehicule.prototype.honk = ()=>{
+    console.log('TUUUUUUUU');
+    
+}
+
+        console.log(Vehicule.prototype);
+        console.log(vehicule);
+        console.log('vehicule3.country',vehicule3.country);
+        vehicule3.country ='Allemagne'
+        console.log('vehicule3.country',vehicule3.country);
+        console.log(Object.keys(vehicule3));
+        console.log(vehicule2.__proto__);
+        console.log(vehicule.__proto__);
+        console.log(Object.keys(vehicule));
+        console.log(vehicule3);
+        console.log(vehicule.__proto__ === Vehicule.prototype);
+        
+        
+</script>
+</body>
+</html>
