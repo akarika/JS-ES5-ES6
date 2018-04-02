@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        function quote() {
+            const advice = 'Ne pas péter plus haut que son cul';
+            const reputation = 'Mieux un bon renom que du bien plein la maison';
+            return function () {
+                console.log(`le consiel capturé est ${advice}
+        Ansi que ${reputation}`);
+
+            }
+        }
+        let getQuotes = quote();
+        getQuotes();
+
+        const monster = {
+            name: 'Zombie',
+            energy: 20
+        };
+        const player = {
+            score: 0,
+            enemyKilled(enemy) {
+                console.log(`${enemy.name} a été tué`);
+                this.score += 10;
+
+            },
+            atttack(enemy) {
+                enemy.atttack -= 10;
+                if (enemy.energy <= 10) {
+                    this.enemyKilled(enemy);
+                }
+            },
+            getScrore() {
+                return this.score;
+            }
+        };
+
+
+        function createPlayer(playerName, gameName) {
+            let score = 0;
+            return {
+                enemyKilled(enemy) {
+                    console.log(`${enemy.name} a été tué`);
+                    this.score += 10;
+
+                },
+                atttack(enemy) {
+                    enemy.atttack -= 10;
+                    if (enemy.energy <= 10) {
+                        this.enemyKilled(enemy);
+                    }
+                },
+                getScrore() {
+                    console.log(`Pseudo ${playerName} le jeux est ${gameName}`);
+                    
+                    return this.score;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

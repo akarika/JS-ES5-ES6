@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div>re</div>
+<div>dssd</div>
+
+<body>
+    <script>
+        const musisians = [{
+                "_id": "5a9470e0a06d5bc4b08ae3a2",
+                "index": 0,
+                "age": 35,
+                "eyeColor": "brown",
+                "name": "Leona Mcfadden",
+                "gender": "female",
+                "company": "BALOOBA",
+                "email": "leonamcfadden@balooba.com"
+            },
+            {
+                "_id": "5a9470e07ee33f1e313f5cbe",
+                "index": 1,
+                "age": 30,
+                "eyeColor": "green",
+                "name": "Oliver Bass",
+                "gender": "male",
+                "company": "GEEKWAGON",
+                "email": "oliverbass@geekwagon.com"
+            },
+            {
+                "_id": "5a9470e0cf1d0e46e7424759",
+                "index": 2,
+                "age": 23,
+                "eyeColor": "green",
+                "name": "Fields Head",
+                "gender": "male",
+                "company": "ICOLOGY",
+                "email": "fieldshead@icology.com"
+            },
+            {
+                "_id": "5a9470e0de8bbebb6202c1c3",
+                "index": 3,
+                "age": 27,
+                "eyeColor": "brown",
+                "name": "Minerva Barrett",
+                "gender": "female",
+                "company": "BIOLIVE",
+                "email": "minervabarrett@biolive.com"
+            },
+            {
+                "_id": "5a9470e0a3ec0bc64b2c769f",
+                "index": 4,
+                "age": 26,
+                "eyeColor": "blue",
+                "name": "Castro Schneider",
+                "gender": "male",
+                "company": "QIMONK",
+                "email": "castroschneider@qimonk.com"
+            }
+        ]
+        console.log(musisians);
+        let numbers = Array.of(1, 2, 3);
+
+        function double() {
+            const args = Array.from(arguments)
+            const doubled = args.map(number => {
+                return number * 2;
+            })
+            console.log(doubled);
+
+
+        }
+        const divs = document.querySelectorAll('div');
+        const divArray = Array.from(divs)
+        console.log('divs', divs);
+        console.log('div', divArray);
+        const fullNames = musisians.map(musian => `${musian.name} sexe : ${musian.gender}`);
+        console.log('fullNames', fullNames);
+        const musisiansUs = musisians.filter(musisian => musisian.gender === 'male');
+        console.log(musisiansUs);
+        const musianAlpha = musisians.sort((m1, m2) => {
+            if (m1.age > m2.age) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+
+
+        const numbers2 = [1, 2, 3, 4, 5];
+        let reducenumber = numbers2.reduce((acc, curr) => {
+            console.log('acc', acc);
+            console.log('curr', curr);
+            return acc + curr;
+        }, 0);
+        let cart = [{
+                id: 1,
+                title: 'pain',
+                price: 1
+            },
+            {
+
+                id: 2,
+                title: 'orange',
+                price: 1.10
+            }
+        ];
+
+        let totalCart = cart.reduce((acc, curr) => {
+            return acc + curr.price;
+        }, 0);
+
+
+        const transportation = ['voiture','pied','métro','bus','pied','voiture','bus','pied','moto','moto']
+        const transport = transportation.reduce((acc,curr)=>{
+             //   if(!acc[curr] ){//acc.hasOwnProperty(curr) 
+                    // {voiture: }
+                //    acc[curr] = 0; // init la propriété;
+                //}
+                                console.log('acc', acc);
+            console.log('curr', curr);
+                acc[curr] +=1;
+                return acc;
+        },{});
+        /*****
+
+        {
+            voiture:3,
+            vélo:2
+        }
+
+        */
+
+        let musian2 = musisians.slice() //es5
+        let musian3 = [].concat(musisians);//es5
+        let musian4 = [...musisians]; //es6  spear operator 
+        let musian5 = Array.from(musisians); // es6
+
+        const prices = [100,256,235,232,89,46,12];
+        const TVA = 0.2;
+        const priceTVA = prices.reduce((acc,curr)=>{//reduce filter
+            console.log('acc', acc);
+            console.log('curr', curr);
+            
+                 curr += curr + TVA*100 ;
+                 acc.push(curr);
+                 return acc;
+        },[]);
+
+        const compagny = musianAlpha.reduce((arr,curr)=>{//reduce sort
+                    if(curr.age>28){
+                        arr.push(curr);
+                    } ;
+                
+                 return arr;
+        },[]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="allposts"></div>
+    <script>
+        let posts = [];
+
+        const allposts = document.querySelector('#allposts');
+        const BASE_URL = 'https://jsonplaceholder.typicode.com';
+        fetch(`${BASE_URL}/posts`)
+            .then((result) => result.json())
+            .then((blogPosts) => {
+                console.log(blogPosts);
+                
+                for (const bp of blogPosts) {
+                    posts.push(bp);
+                }
+                display(posts);
+            })
+
+        function display(collection) {
+            
+            
+            const lis = posts.map(bp => `<li>${bp.title}</li>`)
+            .join(' ')
+            console.log(lis);
+            allposts.innerHTML = lis;
+        }
+    </script>
+</body>
+
+</html>

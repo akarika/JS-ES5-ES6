@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        const Barman = {
+            name: 'bob',
+            bottles: ['biére', 'colla', 'orange'],
+            informIsOpen: function (bottle) {
+                console.log(`${bottle} à été ouverte`);
+                console.log('this dans informIsOpen', this);
+
+            },
+            openBottles: function () {
+                //  var self = this;
+                console.log('this depuis openbottles', this);
+                this.bottles.forEach((bottel) => {//hérite du this de son parent
+                    console.log('this depuis le caalback de thipenBottles: foraeach', this);
+                   // console.log('self depuis le caalback de thipenBottles: foraeach', self);
+                    //  self.informIsOpen(bottel);
+                    this.informIsOpen(bottel);
+                })
+
+            }
+        }
+
+
+
+        const  user1 = {
+            civility:'M',
+            name:{
+                first: 'Peter',
+                last:'Parker'
+            }
+        }
+        const  user2 = {
+            civility:'Mme',
+            name:{
+                first: 'rose',
+                last:'doly'
+            }
+        }
+        const course1 = {
+            title:'Math',
+            duration:'3 semaines'
+        }
+        const course2 = {
+            title:'HISTOIRE',
+            duration:'2 semaines'
+        }
+        function register(course){
+            console.log(this,course)
+            const mesage=`${this.civility} ${this.name.last} , vous etes bien au enregistr${this.civility === 'Mme'? 'ée': ''} de ${course.title}`;
+            console.log(mesage);
+            console.log('**********');
+        }
+        
+        
+        //register.call(user2,course1) call(this qui va etre utilisé dans le contexte de la fonction , arg)
+        const peterRegister = register.bind(user1,course2)// equivalent call mais ruturn une nouvelle fonction , this peut etre utilisé plus tard (contexte)
+    </script>
+</body>
+
+</html>
